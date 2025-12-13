@@ -1,10 +1,6 @@
-# Function_1
+# Function_1: Calculating the time
 
-```plantuml
-@startuml bert_and_ernie
+For the assignment there had to be a Function.
+In our system I created a Function for calculation the travel time.
 
-Ernie->Bert : Hey Bert
-Bert->Ernie : Hey Ernie
-
-@enduml
-```
+This function will return in the program of traveling to school. so in the end the total time can be seen it took from home to school.
