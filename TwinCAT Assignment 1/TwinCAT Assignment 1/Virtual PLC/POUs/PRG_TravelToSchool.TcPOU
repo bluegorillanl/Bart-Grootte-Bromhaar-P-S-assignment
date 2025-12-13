@@ -3,12 +3,69 @@
   <POU Name="PRG_TravelToSchool" Id="{509033ce-6c15-471f-96e8-ab489b83a6fb}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_TravelToSchool
 VAR
+    localTimer : TON; // timer voor simulatie
+	travelFinished: BOOL;
+	travelTime: INT;
+	distanceToSchool: INT;
+	avgSpeed: INT;
+	coffeeReady: BOOL;
+END_VAR
+VAR_INPUT
+	travelState: INT;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[CASE GVL_Main.travelState OF
+
+    0: // Start
+        localTimer(IN := TRUE, PT := T#2S);
+        IF localTimer.Q THEN
+            GVL_Main.travelState := 1;
+            localTimer(IN := FALSE);
+        END_IF
+
+    1: // Stap op fiets naar station Almelo
+        localTimer(IN := TRUE, PT := T#3S);
+        IF localTimer.Q THEN
+            GVL_Main.travelState := 2;
+            localTimer(IN := FALSE);
+        END_IF
+
+    2: // Op station Almelo, instappen trein
+        localTimer(IN := TRUE, PT := T#2S);
+        IF localTimer.Q THEN
+            GVL_Main.travelState := 3;
+            localTimer(IN := FALSE);
+        END_IF
+
+    3: // In trein naar Enschede
+        localTimer(IN := TRUE, PT := T#4S);
+        IF localTimer.Q THEN
+            GVL_Main.travelState := 4;
+            localTimer(IN := FALSE);
+        END_IF
+
+    4: // Op station Enschede, begin lopen
+        localTimer(IN := TRUE, PT := T#3S);
+        IF localTimer.Q THEN
+            GVL_Main.travelState := 5;
+            localTimer(IN := FALSE);
+        END_IF
+
+    5: // Onderweg: check of koffie klaar is
+        IF GVL_Main.coffeeReady THEN
+            GVL_Main.travelState := 6;
+        END_IF
+
+    6: // Op school met koffie
+        GVL_Main.travelFinished := TRUE;
+        GVL_Main.travelTime := calcTravelTime(distanceToSchool, avgSpeed); // functie-aanroep
+
+END_CASE
+]]></ST>
     </Implementation>
     <LineIds Name="PRG_TravelToSchool">
+      <LineId Id="18" Count="46" />
       <LineId Id="5" Count="0" />
     </LineIds>
   </POU>

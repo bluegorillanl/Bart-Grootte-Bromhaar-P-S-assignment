@@ -3,14 +3,17 @@
   <POU Name="calcTravelTime" Id="{55fc3503-48a6-4b54-aaa0-4cfced1a0548}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION calcTravelTime : INT
 VAR_INPUT
-END_VAR
-VAR
+    distance : INT; // in kilometers
+    speed : INT;    // in km/h
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[// Simpele berekening reistijd in minuten
+calcTravelTime := (distance) / speed;
+]]></ST>
     </Implementation>
     <LineIds Name="calcTravelTime">
+      <LineId Id="13" Count="1" />
       <LineId Id="7" Count="0" />
     </LineIds>
   </POU>
