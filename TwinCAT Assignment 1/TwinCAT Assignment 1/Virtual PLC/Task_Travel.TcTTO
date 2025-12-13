@@ -4,6 +4,9 @@
     <!--CycleTime in micro seconds.-->
     <CycleTime>10000</CycleTime>
     <Priority>22</Priority>
+    <PouCall>
+      <Name>PRG_TravelToSchool</Name>
+    </PouCall>
     <TaskFBGuid>{ac63cc9b-27a8-4276-8917-455f5d43ba2d}</TaskFBGuid>
     <Fb_init>{b722dcd0-8538-4c1d-9689-6171490eb823}</Fb_init>
     <Fb_exit>{352cb490-c9a7-470c-850b-5b44c7920519}</Fb_exit>

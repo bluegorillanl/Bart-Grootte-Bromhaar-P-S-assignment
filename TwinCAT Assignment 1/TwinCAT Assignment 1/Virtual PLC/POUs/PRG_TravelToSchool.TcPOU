@@ -61,12 +61,10 @@ END_VAR
         GVL_Main.travelFinished := TRUE;
         GVL_Main.travelTime := calcTravelTime(distanceToSchool, avgSpeed); // functie-aanroep
 
-END_CASE
-]]></ST>
+END_CASE]]></ST>
     </Implementation>
     <LineIds Name="PRG_TravelToSchool">
       <LineId Id="18" Count="46" />
-      <LineId Id="5" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

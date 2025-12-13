@@ -3,13 +3,50 @@
   <POU Name="PRG_BuyCoffee" Id="{9a6699d9-b0d8-4795-a2c4-9a9be7bf6a9a}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_BuyCoffee
 VAR
+    localTimer : TON;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[CASE GVL_Main.coffeeState OF
+
+    0: // Kom winkel binnen
+        localTimer(IN := TRUE, PT := T#2S);
+        IF localTimer.Q THEN
+            GVL_Main.coffeeState := 1;
+            localTimer(IN := FALSE);
+        END_IF
+
+    1: // Bestel koffie
+        localTimer(IN := TRUE, PT := T#2S);
+        IF localTimer.Q THEN
+            GVL_Main.coffeeState := 2;
+            localTimer(IN := FALSE);
+        END_IF
+
+    2: // Wacht tot koffie klaar
+        localTimer(IN := TRUE, PT := T#4S);
+        IF localTimer.Q THEN
+            GVL_Main.coffeeState := 3;
+            localTimer(IN := FALSE);
+        END_IF
+
+    3: // Neem koffie aan
+        GVL_Main.coffeeReady := TRUE;
+        localTimer(IN := TRUE, PT := T#1S);
+        IF localTimer.Q THEN
+            GVL_Main.coffeeState := 4;
+            localTimer(IN := FALSE);
+        END_IF
+
+    4: // Loop winkel uit
+        // Klaar
+        localTimer(IN := FALSE);
+		GVL_Main.coffeeReady := TRUE;
+		
+END_CASE]]></ST>
     </Implementation>
     <LineIds Name="PRG_BuyCoffee">
-      <LineId Id="5" Count="0" />
+      <LineId Id="10" Count="36" />
     </LineIds>
   </POU>
 </TcPlcObject>
