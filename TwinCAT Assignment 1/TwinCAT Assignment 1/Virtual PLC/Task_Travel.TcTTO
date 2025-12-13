@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <Task Name="Task_Travel" Id="{88be58de-15e4-49f2-9964-220bb1def3d3}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>10000</CycleTime>
+    <Priority>22</Priority>
+    <TaskFBGuid>{ac63cc9b-27a8-4276-8917-455f5d43ba2d}</TaskFBGuid>
+    <Fb_init>{b722dcd0-8538-4c1d-9689-6171490eb823}</Fb_init>
+    <Fb_exit>{352cb490-c9a7-470c-850b-5b44c7920519}</Fb_exit>
+    <CycleUpdate>{40f285b0-ca2c-4a14-9ec2-9a1f24f10d72}</CycleUpdate>
+    <PostCycleUpdate>{44c8390a-02ad-4f10-9ed7-e4dcdc664870}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>
