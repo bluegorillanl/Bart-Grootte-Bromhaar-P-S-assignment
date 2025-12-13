@@ -1,0 +1,5 @@
+[book]
+authors = ["Bart Grootte Bromhaar"]
+language = "en"
+src = "src"
+title = "Documentation"
