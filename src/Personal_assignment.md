@@ -1,3 +1,32 @@
-# Program 1: traveling to school
+# Sequence diagram
 
-The first program is created to show ho the person travels from his home to his university.
+
+```plantuml
+
+@startuml
+
+title sequence diagram
+
+Travel -> Gvl : Travel Started
+Gvl -> Travel  : Confirmed
+
+Travel -> Gvl : Arrived at Enschede
+Gvl -> Coffee : start Coffee making
+
+Coffee-> Gvl : coffee making started
+
+
+
+Gvl -> Travel : coffee is being prepared
+Travel -> Gvl : confirmed
+
+Coffee -> Gvl : Coffee ready
+Gvl -> Coffee : confirmed
+Gvl -> Travel : Coffee ready
+Travel -> Gvl : confirmed, Travel status
+
+Travel -> Gvl : Travel ended
+Gvl -> Travel: Travel ended Confirmed
+
+@enduml
+```
