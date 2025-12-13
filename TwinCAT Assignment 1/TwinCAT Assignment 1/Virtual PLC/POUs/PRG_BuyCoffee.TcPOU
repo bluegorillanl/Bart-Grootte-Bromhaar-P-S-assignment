@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="PRG_BuyCoffee" Id="{9a6699d9-b0d8-4795-a2c4-9a9be7bf6a9a}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_BuyCoffee
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_BuyCoffee">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
