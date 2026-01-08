@@ -5,10 +5,9 @@ As seen in sequence diagram below there are 2 systems.
 1 system called traveling and 1 system called Coffee.
 
 The sequence diagram:
-
 ```plantuml
-
 @startuml
+
 title sequence diagram
 
 actor Person
@@ -33,5 +32,6 @@ Travel -> Travel: State 5: Travel to school
 Travel -> Travel: State 6: Arrive at school
 
 Travel --> Person: Travel completed
+
 @enduml
 ```

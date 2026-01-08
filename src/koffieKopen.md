@@ -7,6 +7,7 @@ When "Program 1" is at the 5th state, arrived in Enschede.
 The coffee is picked up and only then the travel state can go on.
 ```plantuml
 @startuml
+
 title Flowchart – Buy Coffee
 
 start
